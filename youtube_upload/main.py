@@ -61,7 +61,7 @@ EXIT_CODES = {
     NotImplementedError: 5,
 }
 
-WATCH_VIDEO_URL = "https://www.youtube.com/watch?v={id}"
+WATCH_VIDEO_URL = "https://youtu.be/{id}"
 
 debug = lib.debug
 struct = collections.namedtuple
@@ -208,7 +208,7 @@ def run_main(parser, options, args, output=sys.stdout):
             if options.playlist:
                 playlists.add_video_to_playlist(youtube, video_id,
                                                 title=lib.to_utf8(options.playlist), privacy=options.privacy)
-            output.write(video_id + "\n")
+            output.write('Video ID: {0}\n'.format(video_id))
     else:
         raise AuthenticationError("Cannot get youtube resource")
 
